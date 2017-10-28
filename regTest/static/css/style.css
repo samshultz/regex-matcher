@@ -717,7 +717,11 @@ input[type="submit"] {
 }
 
 ul#id_flags li,
-ul#id_methods li {
+ul#id_method li {
     float: left;
+    color: #fff;
+}
+.form-w3ls-1 h1 {
+    font-size: 1.4em;
     color: #fff;
 }

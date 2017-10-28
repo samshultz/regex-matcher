@@ -33,7 +33,12 @@
 								<div class="grid-agileits1">
 									{% for field in regex_form %}
 									<div class="form-control">
-									<label class="header">{{ field.label }} <span>*</span></label> 
+									<label class="header">
+										{{ field.label }} 
+										{% if field.label == "Pattern" or field.label == "Text" %}
+											<span>*</span>
+										{% endif %}
+								  </label> 
 										{{ field }}
 									</div><br>
 									{% endfor %}
@@ -48,9 +53,7 @@
 								{% if single_match %}
 									<p>{{ single_match }}</p>
 								{% elif multi_match %}
-									{% for match in multi_match %}
-										<p>{{ match }}</p>
-									{% endfor %}
+									<p>{{ multi_match }}</p>
 								{% else %}
 									<p>No match found!!!</p>
 								{% endif %}
