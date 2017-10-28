@@ -39,7 +39,12 @@
 											<span>*</span>
 										{% endif %}
 								  </label> 
-										{{ field }}
+										{% if field.label == "Pattern" %}
+											<span>re.compile(r'</span>
+										{{ field }}<span>')</span>
+										{% else %}
+										    {{ field }}
+										{% endif %}
 									</div><br>
 									{% endfor %}
 								</div>
@@ -48,7 +53,7 @@
 						</div>
 
 						<div class="form-w3ls-1">
-							<h1>Match Results will be displayed Here</h1>
+							<h1>Match Results will be displayed Here.</h1>
 							{% if not error %}
 								{% if single_match %}
 									<p>{{ single_match }}</p>

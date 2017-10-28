@@ -3,6 +3,7 @@ from .forms import RegexForm
 from .utils import regex_methods, process_regex_form_data
 
 
+
 def index(request):
     regex_form = ''
     single_match = ''
@@ -16,8 +17,8 @@ def index(request):
             pattern, flags, text= cd['pattern'], cd['flags'], cd['text']
             method = cd['method']
             try:
-                single_match, multi_match = process_regex_form_data(pattern, text,
-                    methods, method)
+                single_match, multi_match = process_regex_form_data(pattern,
+                    flags, text, methods, method)
             except:
                 error = "Invalid RegEX. Try Again"
             

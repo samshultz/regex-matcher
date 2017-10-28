@@ -19,11 +19,11 @@ class RegexForm(forms.Form):
         methods {[radio button]} -- Radio Button of Regex flags
     """
     FLAG_LIST = [
-        ('re.ascii', 're.ASCII'),
-        ('re.ignorecase', 're.IGNORECASE'),
-        ('re.multiline', 're.MULTILINE'),
-        ('re.dotall', 're.DOTALL'),
-        ('re.verbose', 're.VERBOSE')
+        ('re.ASCII', 're.ASCII'),
+        ('re.IGNORECASE', 're.IGNORECASE'),
+        ('re.MULTILINE', 're.MULTILINE'),
+        ('re.DOTALL', 're.DOTALL'),
+        ('re.VERBOSE', 're.VERBOSE')
     ]
     METHOD_LIST = [
         ('re.search', 're.search'),

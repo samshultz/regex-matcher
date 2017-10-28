@@ -9,7 +9,7 @@ def regex_methods():
     're.finditer': re.finditer,
     }
 
-def process_regex_form_data(pattern, text, methods, method):
+def process_regex_form_data(pattern, flags, text, methods, method):
     """Process data returned by the regex form view.
     Takes the pattern returned from the regex form, the text
     to be matched as provided by the form, the methods returned
@@ -18,11 +18,20 @@ def process_regex_form_data(pattern, text, methods, method):
 
     It matches this pattern against the given text given the regex
     method provided.
+
+    Variables:
+        pattern {str} -- str of a regExp pattern
+        flags {list} -- A list of regExp flags
+        text {[str]} -- A text to match the regExp pattern against
+        methods {[dict]} -- dictionary of regExp methods where the keys are
+        str of regExp methods and the values are the literal regExp methods e.g
+        >>> {'re.finditer': re.finditer, ... }
+        method {[str]} -- A regExp method
     """
     multi_match = ''
     single_match = ''
-    regex = re.compile(r'{}'.format(pattern))
-
+    flags = "|".join(flags)
+    regex = eval('re.compile(r"{}", {})'.format(pattern, flags))
     # if the user fails to select a method it defaults to the re.match method
     if not method:
         match = regex.match(text)
